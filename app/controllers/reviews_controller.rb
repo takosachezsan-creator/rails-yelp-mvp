@@ -13,6 +13,14 @@ class ReviewsController < ApplicationController
     else
       render :new
     end
+
+    def destroy
+    @review = Review.find(params[:id])
+    @restaurant = @review.restaurant # 削除後に戻る場所をキープ
+    @review.destroy
+    # Rails 7/8 では status: :see_other を付けるのがルールです
+    redirect_to restaurant_path(@restaurant), status: :see_other
+    end
   end
 
   private

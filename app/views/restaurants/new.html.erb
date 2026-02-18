@@ -1,0 +1,14 @@
+<div class="container mt-5">
+  <h1>New Restaurant</h1>
+
+  <%= simple_form_for @restaurant do |f| %>
+    <%= f.input :name, placeholder: "e.g. Epicure" %>
+    <%= f.input :address, placeholder: "e.g. 75008 Paris" %>
+    <%= f.input :phone_number, placeholder: "e.g. 01 43 59 12 12" %>
+    <%= f.input :category, collection: ["chinese", "italian", "japanese", "french", "belgian"], prompt: "Select a category" %>
+
+    <%= f.button :submit, "Create Restaurant", class: "btn btn-primary mt-3" %>
+  <% end %>
+
+  <%= link_to "Back", restaurants_path, class: "d-block mt-3" %>
+</div>
